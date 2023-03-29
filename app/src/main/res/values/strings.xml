@@ -19,4 +19,9 @@
 
     <!-- Do not translate.  -->
     <string name="dial_log_message">Can\'t resolve app for ACTION_DIAL Intent.</string>
+    <string name="action_language">Language</string>
+    <string name="expired_label">Expired Date</string>
+    <string name="jumlah">"Price per item: "</string>
+    <string name="submit">Submit</string>
+    <string name="total">Price for 100 pax:</string>
 </resources>
