@@ -17,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Currency;
 import java.util.Date;
@@ -44,7 +45,14 @@ public class MainActivity extends AppCompatActivity {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double hasilnya = Double.parseDouble(harga.getText().toString())*100;
+                final NumberFormat format = NumberFormat.getInstance(Locale.US);
+                double hasilnya = 0;
+                try {
+                    final Number number = format.parse(harga.getText().toString());
+                    hasilnya = Double.parseDouble(number.toString())*100;
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
 
                 NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(currentLocale);
                 String results = currencyFormatter.format(hasilnya);
